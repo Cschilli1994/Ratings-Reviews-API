@@ -1,0 +1,14 @@
+{
+  "name": "reviews_sdc",
+  "version": "1.0.0",
+  "description": "reviews api service",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "christopher schillinger",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
