@@ -9,6 +9,7 @@ module.exports = {
         res.sendStatus(500);
         console.log(err);
       } else {
+        console.log(result.rows);
         const results = result.rows.map(review => {
           return review.json_build_object;
         })
@@ -18,7 +19,7 @@ module.exports = {
           count: req.query.count,
           results: results
         };
-        console.log(reviews.results);
+        // console.log(reviews.results);
         res.json(reviews);
       }
     })

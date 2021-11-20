@@ -32,3 +32,24 @@
 
 -- END;
 -- $$ LANGUAGE plpgsql;
+
+
+
+
+-- CREATE OR REPLACE FUNCTION get_photos(review int)
+-- RETURNS json
+-- AS
+-- $$
+-- DECLARE photos json;
+
+-- BEGIN
+-- SELECT json_agg(json_build_object(
+-- 	'id', id,
+-- 	'url', url
+-- )) INTO photos
+-- FROM review_photos
+-- WHERE review_id = review;
+-- RETURN photos;
+
+-- END;
+-- $$LANGUAGE plpgsql;
