@@ -7,7 +7,7 @@ const server = express();
 const port = 3010;
 
 server.set('port', port);
-
+server.use(express.json());
 server.use('/', router);
 
 

@@ -3,9 +3,14 @@ const db = require('../database/database.js');
 const controller = require('./controllers');
 
 router.get('/', (req, res) => {
-  db.test();
+  res.send('SERVER RUNNING!').status(200);
 })
-router.get('/api/reviews', controller.reviews.get)
+
+//REVIEWS
+router.get('/api/reviews', controller.reviews.get);
+
+//CHARACTERISTICS
+router.get('/api/reviews/meta', controller.reviewsMeta.get)
 
 
 
