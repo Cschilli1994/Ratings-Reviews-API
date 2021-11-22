@@ -17,7 +17,7 @@ module.exports = {
       '4', (SELECT count(*) FILTER (WHERE rating = 4) AS "4" from reviews WHERE product_id = ${product_id}),
       '5', (SELECT count(*) FILTER (WHERE rating = 5) AS "5" from reviews WHERE product_id = ${product_id})
       )),
-      'recommended', (SELECT json_build_object(
+      'recommended', (json_build_object(
         'false', (get_count(false, ${product_id})),
         'true', (get_count(true, ${product_id}))
         )
@@ -25,14 +25,14 @@ module.exports = {
       'characteristics', (
             SELECT json_object_agg(name,
               json_build_object(
-              'id', characteristics.id,
-              'value', (get_avg(characteristics.id))
+              'id', id,
+              'value', (get_avg(id))
               )
 
                         )
-        FROM characteristics, characteristic_reviews
-        WHERE characteristics.product_id = ${product_id}
-        AND characteristic_reviews.characteristic_id = characteristics.id
+        FROM characteristics
+        WHERE product_id = ${product_id}
+
       )
     );`, callback);
   }

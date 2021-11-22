@@ -8,6 +8,10 @@ router.get('/', (req, res) => {
 
 //REVIEWS
 router.get('/api/reviews', controller.reviews.get);
+router.post('/api/reviews', controller.reviews.add);
+
+router.put('/api/reviews/:review_id/helpful', controller.reviews.helpful);
+router.put('/api/reviews/:review_id/report', controller.reviews.report);
 
 //CHARACTERISTICS
 router.get('/api/reviews/meta', controller.reviewsMeta.get)

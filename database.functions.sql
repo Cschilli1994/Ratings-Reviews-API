@@ -8,9 +8,14 @@
 -- $$
 -- DECLARE
 -- the_avg float(4);
+
 -- BEGIN
--- SELECT AVG(value) INTO the_avg FROM characteristic_reviews WHERE characteristic_reviews.characteristic_id = trait_id;
+
+-- SELECT AVG(value) INTO the_avg
+-- FROM characteristic_reviews
+-- WHERE characteristic_reviews.characteristic_id = trait_id;
 -- RETURN the_avg;
+
 -- END;
 -- $$ LANGUAGE plpgsql;
 
@@ -40,7 +45,8 @@
 -- RETURNS json
 -- AS
 -- $$
--- DECLARE photos json;
+-- DECLARE
+-- photos json;
 
 -- BEGIN
 -- SELECT json_agg(json_build_object(
