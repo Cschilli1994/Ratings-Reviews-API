@@ -3,11 +3,11 @@
 
 
 -- CREATE OR REPLACE FUNCTION get_avg(trait_id int)
--- RETURNS float(4)
+-- RETURNS decimal(8,8)
 -- AS
 -- $$
 -- DECLARE
--- the_avg float(4);
+-- the_avg decimal(8,8);
 
 -- BEGIN
 
