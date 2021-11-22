@@ -5,7 +5,8 @@
   "main": "server/server.js",
   "scripts": {
     "start": "nodemon server.js",
-    "relic": "node -r newrelic server.js"
+    "relic": "node -r newrelic server.js",
+    "test": "jest"
   },
   "author": "christopher schillinger",
   "license": "ISC",
@@ -16,5 +17,8 @@
     "hot-shots": "^9.0.0",
     "nodemon": "^2.0.15",
     "pg": "^8.7.1"
+  },
+  "devDependencies": {
+    "jest": "^27.3.1"
   }
 }
