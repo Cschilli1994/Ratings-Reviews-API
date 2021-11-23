@@ -29,7 +29,7 @@ module.exports = {
     models.reviews.add(req.body, (err) => {
       if (err) {
         res.sendStatus(500);
-        console.log(err, "line 27-contollers/reviews.js");
+        console.log(err, "line 32-contollers/reviews.js");
       } else {
         res.sendStatus(201);
         console.log('REVIEW SAVED');
@@ -40,7 +40,7 @@ module.exports = {
     models.reviews.helpful(req.params, (err, result) => {
       if (err) {
         res.sendStatus(500);
-        console.log(err, "line 38-contollers/reviews.js");
+        console.log(err, "line 43-contollers/reviews.js");
       } else {
         res.sendStatus(204);
         console.log(`Updated Helpful Review:${req.params.review_id}`);
@@ -52,7 +52,7 @@ module.exports = {
     models.reviews.report(req.params, (err) => {
       if (err) {
         res.sendStatus(500);
-        console.log(err, "line 50-contollers/reviews.js");
+        console.log(err, "line 55-contollers/reviews.js");
       } else {
         res.sendStatus(204);
         console.log(`Reported Review:${req.params.review_id}`);

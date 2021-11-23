@@ -8,7 +8,7 @@ module.exports = {
   get: (params, callback) => {
     const {product_id} = params;
     const page = params.page || 1;
-    const count = params.count || 10;
+    const count = params.count || 2;
     let sort = params.sort || 'relevant';
     sorts[sort] === undefined ? sort = 'relevant' : sort = sort;
     console.log(`PRODUCT_ID = ${product_id} :: PAGE = ${page} :: COUNT = ${count} :: SORT = ${sort}`)
@@ -45,10 +45,11 @@ module.exports = {
         callback(err);
       } else {
         if (photos.length > 0) {
-          const {review_id} = results.rows;
-          forEach((photo, i) => {
+          const {review_id} = results.rows[0];
+          console.log(results.rows, 'SEARCH ME');
+          photos.forEach((photo, i) => {
             database.query(`
-          INSERT INTO review_photos(review_id, url) VALUES (${review_id}, ${photo});
+          INSERT INTO review_photos(review_id, url) VALUES (${review_id}, '${photo}');
           `, (photoErr) => {
             if (photoErr) {
               callback(photoErr);
