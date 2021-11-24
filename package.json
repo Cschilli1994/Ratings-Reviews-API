@@ -6,7 +6,13 @@
   "scripts": {
     "start": "nodemon server.js",
     "relic": "node -r newrelic server.js",
-    "test": "jest"
+    "test": "jest",
+    "meta-start": "k6 run spec/meta.start.k6.js",
+    "meta-mid": "k6 run spec/meta.mid.k6.js",
+    "meta-end": "k6 run spec/meta.last.k6.js",
+    "review-start": "k6 run spec/reviews.start.k6.js",
+    "review-mid": "k6 run spec/reviews.mid.k6.js",
+    "review-end": "k6 run spec/reviews.last.k6.js"
   },
   "author": "christopher schillinger",
   "license": "ISC",
