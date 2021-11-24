@@ -23,3 +23,5 @@ server.use('/', router);
 server.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`)
 })
+
+module.exports = server;
