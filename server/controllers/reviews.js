@@ -7,7 +7,7 @@ module.exports = {
     if (id >= 1) {
       models.reviews.get(req.query, (err, result) => {
         if (err) {
-          res.send('Invalid query.').status(500);
+          res.send(err).status(500);
           console.log(err);
         } else {
 

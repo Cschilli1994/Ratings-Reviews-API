@@ -3,11 +3,11 @@
 
 
 CREATE OR REPLACE FUNCTION get_avg(trait_id int)
-RETURNS decimal(8,8)
+RETURNS decimal(8,7)
 AS
 $$
 DECLARE
-the_avg decimal(8,8);
+the_avg decimal(8,7);
 
 BEGIN
 
