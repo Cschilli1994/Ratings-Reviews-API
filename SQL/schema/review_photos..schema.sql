@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS public.review_photos
 TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS public.review_photos
-    OWNER to schill;
+    OWNER to postgres;
 -- Index: review_photos_review_id_idx
 
 -- DROP INDEX IF EXISTS public.review_photos_review_id_idx;

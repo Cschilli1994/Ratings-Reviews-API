@@ -13,15 +13,3 @@ const database = new Pool({
 });
 
 module.exports = database;
-// module.exports = {
-//   test: () => {
-//     pool.query('SELECT * FROM reviews WHERE product_id = 40344',
-//   (err, res) => {
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       console.log(res.rows);
-//     }
-//   })
-//   }
-// }

@@ -1,5 +1,5 @@
 const axios = require('axios');
-const request = require('supertest')
+
 // const server = require('../server/server.js');
 const host = `http://localhost:3010`;
 
@@ -47,7 +47,7 @@ describe('Should return correct columns from review table', () => {
         if (photos.length > 0) {
           photos.forEach(photo => {
             const {id, url} = photo;
-            console.log('HAS PHOTO ID ::', id);
+
             expect(id).toBeDefined();
             expect(typeof url).toBe('string');
           })
@@ -65,9 +65,9 @@ describe('reviews queries should return within time', () => {
     const results = [];
     for (let i = 1; i < 1000; i++) {
       const start = new Date().getTime();
-    await axios.get(`${host}/api/reviews/?product_id=${i}`);
-    const end = new Date().getTime() - start;
-    results.push(end);
+      await axios.get(`${host}/api/reviews/?product_id=${i}`);
+      const end = new Date().getTime() - start;
+      results.push(end);
     }
     console.log(results);
     results.forEach(time => {
@@ -84,9 +84,9 @@ describe('Check data in middle of set', ()=> {
     const results = [];
     for (let i = 500000; i < 501000; i++) {
       const start = new Date().getTime();
-    await axios.get(`${host}/api/reviews/?product_id=${i}`);
-    const end = new Date().getTime() - start;
-    results.push(end);
+      await axios.get(`${host}/api/reviews/?product_id=${i}`);
+      const end = new Date().getTime() - start;
+      results.push(end);
     }
     console.log(results);
     results.forEach(time => {

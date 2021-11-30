@@ -26,6 +26,7 @@ module.exports = {
     }
   },
   add: (req, res) => {
+    console.log(req.body);
     models.reviews.add(req.body, (err) => {
       if (err) {
         res.sendStatus(500);

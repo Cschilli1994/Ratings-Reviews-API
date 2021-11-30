@@ -1,11 +1,3 @@
-
-var StatsD = require('hot-shots');
-var dogstatsd = new StatsD();
-
-// Increment a counter.
-dogstatsd.increment('page.views')
-
-
 const express = require('express');
 const router = require('./routes.js');
 const cors = require('cors');
@@ -24,4 +16,3 @@ server.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`)
 })
 
-module.exports = server;

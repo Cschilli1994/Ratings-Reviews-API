@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS public.characteristic_reviews
 TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS public.characteristic_reviews
-    OWNER to schill;
+    OWNER to postgres;
 -- Index: characteristic_reviews_characteristic_id_idx
 
 -- DROP INDEX IF EXISTS public.characteristic_reviews_characteristic_id_idx;

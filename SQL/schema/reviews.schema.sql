@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS public.reviews
 TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS public.reviews
-    OWNER to schill;
+    OWNER to postgres;
 -- Index: reviews_product_id_idx
 
 -- DROP INDEX IF EXISTS public.reviews_product_id_idx;
