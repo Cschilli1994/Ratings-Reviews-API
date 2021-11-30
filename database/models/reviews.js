@@ -38,35 +38,31 @@ module.exports = {
   },
 
   add: ({rating, summary, body, photos, name, email, recommend, product_id, characteristics}, callback) => {
-    database.query(`
-    INSERT INTO reviews(product_id, rating, date, summary, body, recommend, email, reviewer_name) VALUES (${product_id}, ${rating}, '${new Date().getTime().toString()}', '${summary}', '${body}', ${recommend}, '${email}', '${name}') RETURNING review_id;
-    `, (err, results) => {
-      if (err) {
-        callback(err);
-      } else {
-        if (photos.length > 0) {
-          const {review_id} = results.rows[0];
-          console.log(results.rows, 'SEARCH ME');
-          photos.forEach((photo, i) => {
-            database.query(`
-          INSERT INTO review_photos(review_id, url) VALUES (${review_id}, '${photo}');
-          `, (photoErr) => {
-            if (photoErr) {
-              callback(photoErr);
-            } else {
-              if (i === photos.length -1) {
-                callback(null);
-              }
-            }
+    const photoArr = [];
 
-          })
-          })
-
-        } else {
-          callback(err, results);
-        }
-      }
+    photos.forEach(photo => {
+      photoArr.push(`'${photo}'`);
     })
+
+    const query = `
+    WITH rev_id AS (
+      INSERT INTO reviews(product_id, rating, date, summary, body, recommend, email, reviewer_name)
+      VALUES (${product_id}, ${rating}, '${new Date().getTime().toString()}', '${summary}', '${body}', ${recommend}, '${email}', '${name}')
+      RETURNING review_id
+    ), photos AS (
+      INSERT INTO review_photos(review_id, url)
+      SELECT review_id, unnest FROM (UNNEST(ARRAY[${photoArr}]) CROSS JOIN rev_id
+
+    ) AS rev_photo
+    )
+    INSERT INTO characteristic_reviews(characteristic_id, review_id, value)
+    SELECT key::int, review_id, value::text::int FROM (json_each('${JSON.stringify(characteristics)}')
+    CROSS JOIN rev_id as review_id) AS char_obj;
+
+    `;
+    console.log(query);
+    database.query(query, callback)
+
   },
   helpful: ({review_id}, callback) => {
     database.query(
@@ -85,3 +81,6 @@ module.exports = {
 
   }
 }
+
+
+

@@ -11,8 +11,8 @@ export let options = {
       rate: 1000, // how many requests
       timeUnit: '1s', // per time unit
       duration: '20s', // total duration of scenario
-      preAllocatedVUs: 2000,
-      maxVUs: 2000,
+      preAllocatedVUs: 1000,
+      maxVUs: 1000,
     },
   },
 };

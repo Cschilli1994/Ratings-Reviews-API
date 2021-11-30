@@ -33,11 +33,3 @@ module.exports = {
     );`, callback);
   }
 }
-
-// (SELECT json_build_object(
-//   '1', (SELECT count(*) FILTER (WHERE rating = 1) AS "1" from reviews WHERE product_id = ${product_id}),
-//   '2', (SELECT count(*) FILTER (WHERE rating = 2) AS "2" from reviews WHERE product_id = ${product_id}),
-//   '3', (SELECT count(*) FILTER (WHERE rating = 3) AS "3" from reviews WHERE product_id = ${product_id}),
-//   '4', (SELECT count(*) FILTER (WHERE rating = 4) AS "4" from reviews WHERE product_id = ${product_id}),
-//   '5', (SELECT count(*) FILTER (WHERE rating = 5) AS "5" from reviews WHERE product_id = ${product_id})
-//   ))
