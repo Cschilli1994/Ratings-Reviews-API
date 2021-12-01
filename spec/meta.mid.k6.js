@@ -1,7 +1,7 @@
 import { check } from 'k6'
 import http from 'k6/http'
 
-const host = `http://localhost:3010`;
+const host = `3.128.153.105`;
 // See https://k6.io/docs/using-k6/options
 export let options = {
   discardResponseBodies: true,
