@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS public.characteristics
 TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS public.characteristics
-    OWNER to schill;
+    OWNER to postgres;
 -- Index: characteristics_product_id_idx
 
 -- DROP INDEX IF EXISTS public.characteristics_product_id_idx;
@@ -22,3 +22,4 @@ CREATE INDEX IF NOT EXISTS characteristics_product_id_idx
     ON public.characteristics USING btree
     (product_id ASC NULLS LAST)
     TABLESPACE pg_default;
+

@@ -6,8 +6,8 @@ dotenv.config();
 
 const database = new Pool({
   user: 'postgres',
-  host: '3.142.92.90',
-  database: 'postgres',
+  host: '13.59.83.236',
+  database: 'review-db',
   password: 'password',
   port: 5432,
 });

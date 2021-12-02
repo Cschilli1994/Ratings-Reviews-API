@@ -2,19 +2,19 @@ import { check } from 'k6'
 import http from 'k6/http'
 
 const host = `http://localhost:3010`;
-// See https://k6.io/docs/using-k6/options
-export let options = {
-  discardResponseBodies: true,
-  scenarios: {
-    contacts: {
-      executor: 'constant-arrival-rate',
-      rate: 1000, // how many requests
-      timeUnit: '1s', // per time unit
-      duration: '20s', // total duration of scenario
-      preAllocatedVUs: 1000,
-      maxVUs: 1000,
+  // See https://k6.io/docs/using-k6/options
+  export let options = {
+    discardResponseBodies: true,
+    scenarios: {
+      contacts: {
+        executor: 'constant-arrival-rate',
+        rate: 1000, // how many requests
+        timeUnit: '1s', // per time unit
+        duration: '20s', // total duration of scenario
+        preAllocatedVUs: 1000,
+        maxVUs: 1000,
+      },
     },
-  },
 };
 
 export default function() {

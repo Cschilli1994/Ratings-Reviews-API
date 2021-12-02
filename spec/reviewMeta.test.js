@@ -13,7 +13,7 @@ describe('Review Meta Data first 10%', () => {
     for (let i = 1; i < 1000; i++) {
       const start = new Date().getTime();
     await axios.get(`${host}/api/reviews/meta/?product_id=${i}`);
-    const end = new Date().getTime() - start;
+      const end = new Date().getTime() - start;
     results.push(end);
     }
     console.log(results);
